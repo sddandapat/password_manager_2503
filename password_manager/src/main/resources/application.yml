@@ -1,5 +1,20 @@
+server:
+  port: 8080
 spring:
   application:
     name: password_manager
-server:
-  port: 8080
+  datasource:
+    url: jdbc:h2:file:./db/testdb  # Store data in the project directory (relative path)
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+    hikari:
+      maximum-pool-size: 5
+  h2:
+    console:
+      enabled: true  # Enable the H2 console
+      path: /h2-console  # Access the H2 console at /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update  # Options: 'create', 'update', 'validate', 'none'
+    show-sql: true  # Optional: Show SQL queries in the console for debugging
